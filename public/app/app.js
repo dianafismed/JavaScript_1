@@ -1,2 +1,8 @@
+import { handleStatus } from "./utils/promisse-helpers.js";
+
 document.querySelector('#myButton')
-.onclick (alert('oi'));  // ou .onclick = () => alert('oi)
+.onclick = () =>
+  fetch('http://localhost:3000/notas')
+  .then(handleStatus)
+  .then(notas => console.log(notas))
+  .catch(console.log);
